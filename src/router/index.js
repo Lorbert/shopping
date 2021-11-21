@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-const Home = () => import('views/home/home.vue')//采用懒加载的方式
-const Cart = () => import('views/cart/cart.vue')
-const Category = () => import('views/category/category.vue')
-const Me = () => import('views/me/me.vue')
+const Home = () => import('views/home/Home.vue')//采用懒加载的方式
+const Cart = () => import('views/cart/Cart.vue')
+const Category = () => import('views/category/Category.vue')
+const Me = () => import('views/me/Me.vue')
 
 Vue.use(VueRouter)
 
