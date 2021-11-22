@@ -24,7 +24,7 @@ export default {
 
     },
     itemImageLoad() {
-
+      this.$bus.$emit('itemImageLoad')
     }
   },
   computed: {

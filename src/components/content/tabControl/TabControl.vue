@@ -46,10 +46,12 @@ export default {
   flex: 1;
 }
 #tab-item span {
-  padding: 5px;
+  padding: 3px 5px 7px 5px;
 }
 .active {
   color: var(--color-high-text);
+}
+.active span {
   border-bottom: 2px solid var(--color-tint);
 }
 </style>
