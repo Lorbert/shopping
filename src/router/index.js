@@ -4,6 +4,7 @@ const Home = () => import('views/home/Home.vue')//采用懒加载的方式
 const Cart = () => import('views/cart/Cart.vue')
 const Category = () => import('views/category/Category.vue')
 const Me = () => import('views/me/Me.vue')
+const Detail = () => import('views/detail/Detail.vue')
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,10 @@ const routes = [
     {
       path:'/me',
       component: Me
+    },
+    {
+      path:'/detail/:iid',
+      component: Detail
     },
 ]
 

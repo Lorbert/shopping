@@ -13,7 +13,7 @@ export const itemListenerMixin = {
     this.itemImgListener = () => {
       this.refresh()
     }
-    this.$bus.$on('itemImageLoad', this.itemImgListener)
+    this.$bus.$on('itemImageLoad', this.itemImgListener)//第一个参数为接收到的函数，第二个参数为触发的方法
   },
   methods: {
     backTop() {

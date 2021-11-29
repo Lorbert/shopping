@@ -21,8 +21,9 @@ export default {
   },
   methods: {
     itemClick() {
-
+      this.$router.push('/detail/'+ this.goods.iid)
     },
+    //每次图片加载完会触发这个函数
     itemImageLoad() {
       this.$bus.$emit('itemImageLoad')
     }
