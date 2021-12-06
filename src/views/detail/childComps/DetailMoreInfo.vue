@@ -31,14 +31,15 @@ export default {
   },
   methods: {
     ImageLoad() {
-      if (++this.counter === this.imageLength ) {
+      this.counter++;
+      if(this.counter === this.imageLength) {
         this.$emit('ImageLoad')
       }
     }
   },
   watch: {
     detailInfo() {
-      this.imageLength = this.detailInfo.detailImage[0].list,length;
+      this.imageLength = this.detailInfo.detailImage[0].list.length;
     } 
   }
 }

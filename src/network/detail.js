@@ -8,6 +8,11 @@ export function getDetail(iid) {
     }
   })
 }
+export function getRecommend() {
+  return request({
+    url:'/recommend'
+  })
+}
 
 export class Goods {
   constructor(itemInfo,columns,shopInfo) {
@@ -30,5 +35,13 @@ export class ShopInfo {
     this.Sells = shopInfo.cSells;
     this.TGoods = shopInfo.cGoods;
     this.Fans = shopInfo.cFans;
+  }
+}
+
+export class GoodsParam {
+  constructor(info,rule) {
+    this.image = info.images ? info.images[0] : '';
+    this.infos = info.set;
+    this.sizes = rule.tables
   }
 }
