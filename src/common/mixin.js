@@ -9,7 +9,7 @@ export const itemListenerMixin = {
     }
   },
   mounted () {
-    this.refresh = debounce(this.$refs.scroll.refresh,200);
+    this.refresh = debounce(this.$refs.scroll.refresh,500);
     this.itemImgListener = () => {
       this.refresh()
     }

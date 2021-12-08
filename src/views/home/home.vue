@@ -1,7 +1,7 @@
 <template>
 <div id="home">
   <nav-bar class="navbar"><div slot="center">购物街</div></nav-bar>
-  <tab-control :tabItem="tabItem" @tabClick="tabClick" id="tab-control" ref="tabControl1" v-show="isShowTabC" ></tab-control>
+  <tab-control class="tabcontrol" :tabItem="tabItem" @tabClick="tabClick" id="tab-control" ref="tabControl1" v-show="isShowTabC" ></tab-control>
   <scroll class="content" ref="scroll"
   :proprobeType="3"
   :pullUpLoad="true"
@@ -27,7 +27,6 @@ import Scroll from 'components/common/scroll/Scroll.vue'
 import BackTop from 'components/common/backTop/BackTop.vue'
 import TabControl from 'components/content/tabControl/TabControl'
 import GoodList from 'components/content/goods/GoodList.vue'
-
 import {itemListenerMixin} from 'common/mixin.js'
 import {getHomeMultidata,getHomeGoods} from "network/home"
 
@@ -67,17 +66,18 @@ export default {
     this.getHomeGoods('sell');
   },
   mounted() {
-    // const refresh = this.debounce(this.$refs.scroll.refresh,200);
+    // const refresh = debounce(this.$refs.scroll.refresh,200);
     // this.$bus.$on('itemImageLoad', () => {
     //   refresh()
     // })
   },
   activated () {
-    this.$refs.scroll.scrollTo(0,scrollY);
+    this.$refs.scroll.scrollTo(0,this.ScrollY);
     this.$refs.scroll.refresh()
   },
   deactivated () {
-    this.scrollY = this.$refs.scroll.getScrollY()
+    this.ScrollY = this.$refs.scroll.getScrollY();
+    this.$bus.$off('itemImageLoad',this.itemImgListener)
   },
   methods: {
     //点击分类的函数
@@ -152,5 +152,10 @@ export default {
 #tab-control {
   position: relative;
   z-index: 9;
+}
+.tabcontrol {
+  position: relative;
+  z-index: 9;
+  top: -1px;
 }
 </style>
