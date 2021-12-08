@@ -5,7 +5,7 @@
       <category-left :categoryList="categoryList" class="category-left" @cateClick= "changeType" ref="cateLeft"></category-left>
       <scroll :probeType="3" ref="scroll" class="category-right">
         <category-type :subcategory="subcategory" @ImgLoad="ImgLoad"></category-type>
-        <tab-control :tabItem="tabItem" @tabClick="tabClick" ref="tabscroll"></tab-control>
+        <tab-control :tabItem="['流行','新款','精选']" @tabClick="tabClick" ref="tabscroll"></tab-control>
         <good-list :goodsList="showGoods"></good-list>
       </scroll>
     </div>
@@ -39,7 +39,6 @@ export default {
       subcategory:[],
       categoryList:[],
       maitKey:'',
-      tabItem: ['流行','新款','精选'],
       miniWallkey: '',
       goodslist:{
         'pop': {list:[]},
@@ -72,7 +71,6 @@ export default {
       this.getSubDetail(this.miniWallkey,'sell')
     },
     tabClick(indexs) {
-      console.log(indexs);
       switch(indexs) {
         case 0:
           this.currentType = 'pop';
@@ -84,7 +82,7 @@ export default {
           this.currentType = 'sell';
           break;
       }
-      // this.$refs.scroll.refresh()
+      this.$nextTick(showGoods())
     },
     getSubcategory(key) {
       getSubcategory(key).then(res => {
