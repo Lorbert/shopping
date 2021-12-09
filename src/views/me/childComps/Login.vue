@@ -3,7 +3,7 @@
     <div class="avatar left"><img src="~assets/img/profile/avatar.svg" ></div>
     <div class="title left">
       <div><a href="#">登录</a> / <a href="#">注册</a></div>
-      <div>暂未绑定手机号码</div>
+      <div class="phone"><img src="~assets/img/profile/phone.svg" alt=""> 暂未绑定手机号码</div>
     </div>
   </div>
 </template>
@@ -42,5 +42,14 @@ export default {
 }
 .title a:hover {
   color: #ccc;
+}
+.title .phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title .phone img {
+  width: 18px;
+  height: 18px;
 }
 </style>

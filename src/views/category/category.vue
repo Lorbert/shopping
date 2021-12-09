@@ -82,7 +82,6 @@ export default {
           this.currentType = 'sell';
           break;
       }
-      this.$nextTick(showGoods())
     },
     getSubcategory(key) {
       getSubcategory(key).then(res => {
